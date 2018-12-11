@@ -15,9 +15,16 @@ java_library(
     srcs = ["src/main/java/com/example/Greeting.java"],
     visibility = ["//src/main/java/com/example/cmdline:__pkg__"],
     )
+
 java_binary(
     name = "runner",
     srcs = ["Runner.java"],
     main_class = "com.example.cmdline.Runner",
     deps = ["//:greeter"]
+)
+
+java_binary(
+    name = "settingsDropwizard",
+    srcs = glob(["settingsDropwizard/src/*.java"]),
+    main_class = "au.com.infomedia.App",
 )
